@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Քար Մկրատ Թուղթ</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f0f0;
+}
+.container {
+    text-align: center;
+    background: white;
+    padding: 30px 50px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Քար Մկրատ Թուղթ</h1>
+    <p>Ընտրիր մեկը՝ Քար Մկրատ Թուղթ:</p>
+    <button onclick="play('rock')">Քար</button>
+    <button onclick="play('paper')">Մկրատ</button>
+    <button onclick="play('scissors')">Թուղթ</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function play(playerChoice) {
+    const choices = ['rock', 'paper', 'scissors'];
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
+
+    let result = '';
+
+    if(playerChoice === computerChoice) {
+        result = 'Բարդ: հավասար խաղ';
+    } else if (
+        (playerChoice === 'rock' && computerChoice === 'scissors') ||
+        (playerChoice === 'paper' && computerChoice === 'rock') ||
+        (playerChoice === 'scissors' && computerChoice === 'paper')
+    ) {
+        result = 'Դու հաղթեցիր!';
+    } else {
+        result = 'Դու պարտվեցիր!';
+    }
+
+    document.getElementById('result').textContent = `Դու ընտրեցիր: ${playerChoice}, Համակարգիչը ընտրեց: ${computerChoice}. ${result}`;
+}
+</script>
+
+</body>
+</html>
