@@ -53,18 +53,18 @@ function play(playerChoice) {
     let result = '';
 
     if(playerChoice === computerChoice) {
-        result = 'Բարդ: հավասար խաղ';
+        result = 'Draw';
     } else if (
         (playerChoice === 'rock' && computerChoice === 'scissors') ||
         (playerChoice === 'paper' && computerChoice === 'rock') ||
         (playerChoice === 'scissors' && computerChoice === 'paper')
     ) {
-        result = 'Դու հաղթեցիր!';
+        result = 'You win!';
     } else {
-        result = 'Դու պարտվեցիր!';
+        result = 'You loose !';
     }
 
-    document.getElementById('result').textContent = `Դու ընտրեցիր: ${playerChoice}, Համակարգիչը ընտրեց: ${computerChoice}. ${result}`;
+    document.getElementById('result').textContent = `You choose: ${playerChoice}, Computer choose: ${computerChoice}. ${result}`;
 }
 </script>
 
