@@ -1,1 +1,64 @@
 #Guess the number
+
+
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<title>Գուշակիր թիվը</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    text-align: center;
+    margin-top: 100px;
+  }
+  input {
+    padding: 8px;
+    font-size: 16px;
+    width: 60px;
+    text-align: center;
+  }
+  button {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  p {
+    font-size: 18px;
+  }
+</style>
+</head>
+<body>
+
+<h1>🎯 Guess the number</h1>
+<p>I think number from 1 to 10. Try to guess</p>
+
+<input type="number" id="guess" min="1" max="10">
+<button onclick="check()">Try</button>
+
+<p id="result"></p>
+
+<script>
+  let secret = Math.floor(Math.random() * 10) + 1;
+
+  function check() {
+    let user = document.getElementById("guess").value;
+    let result = document.getElementById("result");
+
+    if (user == "") {
+      result.textContent = "Write number 🙂";
+      return;
+    }
+
+    if (+user === secret) {
+      result.textContent = "🎉 True, you win";
+    } else {
+      result.textContent = "❌ Wrong. True number is " + secret ;
+    }
+  }
+</script>
+
+</body>
+</html>
